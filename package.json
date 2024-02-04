@@ -1,6 +1,6 @@
 {
   "name": "nasdk",
-  "version": "1.0.0-beta2",
+  "version": "1.0.0-beta3",
   "description": "nostr assets api sdk",
   "main": "dist/nasdk.cjs.js",
   "module": "dist/nasdk.esm.js",
