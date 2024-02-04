@@ -13,17 +13,8 @@ export default class NostrProvider {
     }
   }
 
-  /**
-   * Sets the NostrProvider based on the provided provider name.
-   * @param {string} providerName - The name of the provider.
-   * @returns {boolean} - Returns true if the provider is supported and set successfully, otherwise false.
-   */
-  setNostrProvider (providerName) {
-    if (this.supportedProviderList[providerName]) {
-      window.nostrasset.nostr = this.supportedProviderList[providerName]
-      return true
-    }
-    return false
+  getProvider () {
+    return window.nostrasset.nostr
   }
 
   /**
@@ -33,11 +24,15 @@ export default class NostrProvider {
    * @throws {Error} - Throws an error if the provider is not supported.
    */
   async connect (providerName) {
-    const setProviderRet = this.setNostrProvider(providerName)
-    if (!setProviderRet) {
-      const supportProviderNames = Object.keys(this.supportedProviderList).join(',')
-      throw new Error(`provider not supported,only support ${supportProviderNames} now`)
+    const supportProviderNames = Object.keys(this.supportedProviderList).join(',')
+    if (!supportProviderNames.includes(providerName)) {
+      throw new Error(`Provider not supported,only support ${supportProviderNames} now`)
     }
+    if (!this.supportedProviderList[providerName]) {
+      throw new Error(`No ${providerName} provider found`)
+    }
+    window.nostrasset.nostr = this.supportedProviderList[providerName]
+
     return await window.nostrasset.nostr.getPublicKey()
   }
 }
