@@ -32,7 +32,7 @@ It is an SDK library developed based on the NOSTR ASSET protocol, used to connec
 ```
 yarn add nasdk
 
-//import bolt11min.js to public/index.xml through script src
+//import bolt11min.js to public/index.html through script src
 <script src=`${yourpath}/bolt11.min.js``></script>
 ```
 #### code
@@ -65,7 +65,7 @@ const nasdk = new NASDK({ env: 'development', privateKey, poolOptions:{getTimeou
 
  const res = await nasdk.market.listOrder({ side:'sell',amount:'100',price:'101',buyOrSellTokenName:'TRICK',payTokenName:'SATS'})
 
- // You can see more examples in the src/tests directory
+ // You can see more examples in the tests directory
 
 ```
 ### HTML
