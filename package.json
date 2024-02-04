@@ -1,12 +1,12 @@
 {
   "name": "nasdk",
-  "version": "1.0.0-beta3",
+  "version": "1.0.0-beta4",
   "description": "nostr assets api sdk",
   "main": "dist/nasdk.cjs.js",
   "module": "dist/nasdk.esm.js",
   "author": "jim",
   "license": "MIT",
-  "type":"module",
+  "type": "module",
   "devDependencies": {
     "eslint": "^8.55.0",
     "eslint-config-standard": "^17.1.0",
@@ -36,6 +36,10 @@
   "scripts": {
     "build": "rollup -c & yarn build:umd",
     "build:umd": "BUILD=umd rollup -c",
-    "watch": "rollup -c -w"
+    "watch": "rollup -c -w",
+    "doc": "npx jsdoc -r ./src -d ./docs"
+  },
+  "engines": {
+    "node": ">=21.5.0"
   }
 }

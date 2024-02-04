@@ -1,7 +1,12 @@
 /**
- * Represents a NostrProvider.
+ * @module modules/providers
+ * @description Represents a NostrProvider.
  */
 export default class NostrProvider {
+  /**
+   * Represents a Providers object.
+   * @constructor
+   */
   constructor () {
     window.nostrasset = window.nostrasset || {}
     this.supportedProviderList = {
@@ -13,6 +18,10 @@ export default class NostrProvider {
     }
   }
 
+  /**
+   * Retrieves the provider from the window object.
+   * @returns {Object} The provider object.
+   */
   getProvider () {
     return window.nostrasset.nostr
   }
