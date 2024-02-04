@@ -19,6 +19,7 @@ It is an SDK library developed based on the NOSTR ASSET protocol, used to connec
 ### nasdk.provider
 1. supportedProviderList
 2. connect
+3. getProvider
 ### nasdk.utils
 1. nip04
 2. nip19
