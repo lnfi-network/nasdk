@@ -1,0 +1,49 @@
+{
+  "name": "nasdk",
+  "version": "1.0.0-beta5",
+  "description": "nostr assets api sdk",
+  "main": "dist/nasdk.cjs.js",
+  "module": "dist/nasdk.esm.js",
+  "author": "jim",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nostrassets/nasdk.git"},
+  "license": "MIT",
+  "type": "module",
+  
+  "devDependencies": {
+    "eslint": "^8.55.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+    "eslint-plugin-promise": "^6.0.0",
+    "jest": "^29.7.0",
+    "jest-extended": "^4.0.2",
+    "rollup": "^4.9.6",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-eslint": "^7.0.0",
+    "rollup-plugin-node-polyfills": "^0.2.1",
+    "rollup-plugin-terser": "^7.0.2"
+  },
+  "dependencies": {
+    "@babel/core": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
+    "@rollup/plugin-babel": "^6.0.4",
+    "axios": "^1.6.7",
+    "nostr-tools": "1.17.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-polyfill-node": "^0.13.0",
+    "websocket-polyfill": "^0.0.3"
+  },
+  "scripts": {
+    "build": "rollup -c & yarn build:umd",
+    "build:umd": "BUILD=umd rollup -c",
+    "watch": "rollup -c -w",
+    "doc": "npx jsdoc -r ./src -d ./docs"
+  },
+  "engines": {
+    "node": ">=20.3.1"
+  }
+}
