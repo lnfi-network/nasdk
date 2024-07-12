@@ -10,26 +10,27 @@
     <script src="./bolt11.min.js"></script>
     <script>
         let nasdk
-        window.onload = function(){
-             nasdk = new NASDK({ env: 'development' })
+        window.onload = function () {
+            nasdk = new NASDK({ env: 'development' })
         }
         // You should call this function to initialize the SDK
-     
-       
+
+
         async function onConnect() {
             const supportedProviderNames = Object.keys(nasdk.provider.supportedProviderList)
             const res = await nasdk.provider.connect('alby')
             console.log('🚀 ~ res:', res)
         }
-        async function testWithdraw() {
-            const retWithdraw = await nasdk.token.withdraw({ invoice: 'lnbc1u1pjmev08pp5mp0c87rm40y9qvva2xfq32dc6rvmjjdum6p242ujvu740tg0gddsdq5g9kxy7fqd9h8vmmfvdjscqzzsxqyz5vqsp5wxjwmfr79h7y8wn6p4dn6ts8pzgvl9jnzg8vltr9enpwlkwc2zes9qyyssqk2729du5xjgxh3cc5xesyuxpd7dkwgwvs7s79mpknuuz6au7rgz97kvyz8lkpl25vxuy3qpsx72fqux2yk32tgrsq7d0q86h27hnr9cp0zr6cm' })
-            console.log("🚀 ~ test ~ retWithdraw:", retWithdraw)
+        async function testTransfer() {
+            const retWithdraw = await nasdk.token.transfer({ tokenName: 'NOSTR', amount: 1, to: 'npub1zptcf2v9ms5dgd8mgulsckk04l9upr3lnerk6ckh9zyntzu0ness753zx8' })
+            console.log("🚀 ~ test ~ testTransfer:", testTransfer)
         }
     </script>
 </head>
 
 <body>
     <button onclick="onConnect()">Connect to alby</button>
+    <button onclick="testTransfer()">transfer</button>
 </body>
 
 </html>

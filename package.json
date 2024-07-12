@@ -44,6 +44,6 @@
     "doc": "npx jsdoc -r ./src -d ./docs"
   },
   "engines": {
-    "node": ">=20.3.1"
+    "node": ">=20.3.0"
   }
 }

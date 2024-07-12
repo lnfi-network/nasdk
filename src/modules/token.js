@@ -40,6 +40,7 @@ export default class Token {
   transfer ({ tokenName, amount, to }) {
     const command = `transfer ${amount} ${tokenName} to ${to}`
     return this.runCommand(command, this.sendTo)
+   
   }
 
   /**
