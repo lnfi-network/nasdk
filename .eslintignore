@@ -4,3 +4,4 @@ dist
 *.cjs.js
 *.esm.js
 *.umd.js
+*.yml

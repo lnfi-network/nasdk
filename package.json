@@ -7,7 +7,7 @@
   "author": "jim",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nostrassets/nasdk.git"
+    "url": "https://github.com/lnfi-network/nasdk.git"
   },
   "license": "MIT",
   "type": "module",
