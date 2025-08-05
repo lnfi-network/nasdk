@@ -1,13 +1,12 @@
 name: Build and Publish to NPM
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
+    environment: prod-deploy
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,8 +30,8 @@ jobs:
           BUILD_HASH=$(find dist -type f -exec sha256sum {} \; | sha256sum | cut -d' ' -f1)
           echo "build_hash=$BUILD_HASH" >> $GITHUB_OUTPUT
           echo "Build hash: $BUILD_HASH"
-          
-     
+
+
           PACKAGE_VERSION=$(node -p "require('./package.json').version")
           BUILD_TIME=$(date -u +%Y-%m-%dT%H:%M:%SZ)
           echo "{\"version\":\"$PACKAGE_VERSION\",\"buildHash\":\"$BUILD_HASH\",\"buildTime\":\"$BUILD_TIME\"}" > dist/build-info.json
@@ -60,6 +59,6 @@ jobs:
 
       - name: Publish new version
         if: steps.check-publish.outputs.should_publish == 'true'
-        run: npm publish
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

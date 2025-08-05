@@ -1,16 +1,19 @@
 {
-  "name": "nasdk",
-  "version": "1.0.1",
+  "name": "@lnfi-network/nasdk",
+  "version": "1.0.0",
   "description": "nostr assets api sdk",
   "main": "dist/nasdk.cjs.js",
   "module": "dist/nasdk.esm.js",
   "author": "jim",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nostrassets/nasdk.git"},
+    "url": "https://github.com/nostrassets/nasdk.git"
+  },
   "license": "MIT",
   "type": "module",
-  
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "eslint": "^8.55.0",
     "eslint-config-standard": "^17.1.0",
