@@ -44,7 +44,8 @@
     "build": "rollup -c & yarn build:umd",
     "build:umd": "BUILD=umd rollup -c",
     "watch": "rollup -c -w",
-    "doc": "npx jsdoc -r ./src -d ./docs"
+    "doc": "npx jsdoc -r ./src -d ./docs",
+    "lint": "eslint src --ext .js"
   },
   "engines": {
     "node": ">=20.3.0"
